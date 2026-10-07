@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('total_bilhetes')->default(100);
             $table->enum('status', ['ativa', 'encerrada', 'sorteada'])->default('ativa');
             $table->dateTime('data_sorteio')->nullable();
-            $table->foreignId('ganhador_bilhete_id')->nullable()->constrained('bilhetes')->nullOnDelete();
+            $table->foreignId('ganhador_bilhete_id')->nullable();
             $table->timestamps();
         });
     }
