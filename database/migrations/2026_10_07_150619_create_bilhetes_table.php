@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('bilhetes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rifa_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('compra_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('compra_id')->nullable();
             $table->integer('numero');
             $table->enum('status', ['disponivel', 'pendente', 'pago'])->default('disponivel');
             $table->string('comprador_nome')->nullable();
