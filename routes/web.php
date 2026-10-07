@@ -22,9 +22,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 // ── Rota padrão do Laravel / Inertia ────────────────────────────────────────
-Route::inertia('/', 'Welcome', [
-    'canRegister' => Features::enabled(Features::registration()),
-])->name('home');
+Route::redirect('/', '/rifa')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
