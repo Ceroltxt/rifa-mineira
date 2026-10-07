@@ -31,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function configureDefaults(): void
     {
+        if (env('APP_ENV') === 'production') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
+
         Date::use(CarbonImmutable::class);
 
         DB::prohibitDestructiveCommands(
